@@ -2,18 +2,28 @@
 {
     internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            // TODO: read input from a file
-            string input = Console.In.ReadToEnd();
-            Console.WriteLine(input);
-            if (input.Contains(args[1]))
-            {
-                Console.WriteLine(input);
-                Environment.Exit(0);
-            }
-            Environment.Exit(1);
+            Console.WriteLine(args.Length);
 
+            if (args[1] == null)
+            {
+                // TODO: read input from the terminal
+            }
+
+            string path = args[2];
+            StreamReader sr = new StreamReader(path);
+
+            string? line = sr.ReadLine();
+
+            while (line != null)
+            {
+                if (line.Contains(args[1]))
+                    Console.WriteLine(line);
+                line = sr.ReadLine();
+            }
+
+            sr.Close();
         }
     }
 }
