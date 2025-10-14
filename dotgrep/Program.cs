@@ -4,11 +4,17 @@
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine(args.Length);
-
-            if (args[1] == null)
+            if (args.Length < 2)
             {
-                // TODO: read input from the terminal
+                Console.WriteLine("Usage: dotgrep <pattern> <file>\r\n");
+                Environment.Exit(2);
+            }
+            string? input = Console.In.ReadToEnd();
+            if (args.Length == 2 && input != null)
+            {
+                if (input.Contains(args[1]))
+                    Console.WriteLine(input);
+                Environment.Exit(0);
             }
 
             string path = args[2];
