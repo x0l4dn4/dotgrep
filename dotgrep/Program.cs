@@ -6,7 +6,7 @@
         {
             if (args.Length < 2)
             {
-                Console.WriteLine("Usage: dotgrep <pattern> <file>\r\n");
+                Console.WriteLine("Usage: dotgrep [OPTION]... PATTERNS [FILE]...\r\n");
                 Environment.Exit(2);
             }
             string? input = Console.In.ReadToEnd();
